@@ -35,7 +35,7 @@ def submit_bid():
     
 
     # Write to bids.csv
-    with open('C:\\Users\\dusti\\OneDrive\\Desktop\\Jobs\\bids.csv', mode='a', newline='') as file:
+    with open('bids.csv', mode='a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow([client_name, contact_info, email_address, address, date_of_bid, material_estimate, labor_estimate, estimated_timeframe, estimated_number_of_workers, grand_total_of_bid, status])
 
@@ -56,7 +56,7 @@ def submit_job():
     print(client_name, contact_info, location, job_details, start_date, estimated_enddate, onsite_workers, progress)
 
     # Write to jobs.csv
-    with open('C:\\Users\\dusti\\OneDrive\\Desktop\\Jobs\\jobs.csv', mode='a', newline='') as file:
+    with open('jobs.csv', mode='a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow([client_name, contact_info, location, job_details, start_date, estimated_enddate, onsite_workers, progress])
 
