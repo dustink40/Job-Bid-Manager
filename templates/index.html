@@ -19,14 +19,14 @@
         </tr>
         {% for job in jobs %}
         <tr>
-            <td>{{ job['client_name'] }}</td>
-            <td>{{ job['contact_info'] }}</td>
-            <td>{{ job['location'] }}</td>
-            <td>{{ job['job_details'] }}</td>
-            <td>{{ job['start_date'] }}</td>
-            <td>{{ job['estimated_enddate'] }}</td>
-            <td>{{ job['onsite_workers'] }}</td>
-            <td>{{ job['progress'] }}</td>
+            <td>{{ job.client_name }}</td>
+            <td>{{ job.contact_info }}</td>
+            <td>{{ job.location }}</td>
+            <td>{{ job.job_details }}</td>
+            <td>{{ job.start_date }}</td>
+            <td>{{ job.estimated_enddate }}</td>
+            <td>{{ job.onsite_workers }}</td>
+            <td>{{ job.progress }}</td>
         </tr>
         {% endfor %}
     </table>
@@ -72,17 +72,17 @@
         </tr>
         {% for bid in bids %}
         <tr>
-            <td>{{ bid['client_name'] }}</td>
-            <td>{{ bid['contact_info'] }}</td>
-            <td>{{ bid['email_address'] }}</td>
-            <td>{{ bid['address'] }}</td>
-            <td>{{ bid['date_of_bid'] }}</td>
-            <td>{{ bid['material_estimate'] }}</td>
-            <td>{{ bid['labor_estimate'] }}</td>
-            <td>{{ bid['estimated_timeframe'] }}</td>
-            <td>{{ bid['estimated_number_of_workers'] }}</td>
-            <td>{{ bid['grand_total_bid'] }}</td>
-            <td>{{ bid['status'] }}</td>
+            <td>{{ bid.client_name }}</td>
+            <td>{{ bid.contact_info}}</td>
+            <td>{{ bid.email_address }}</td>
+            <td>{{ bid.address }}</td>
+            <td>{{ bid.date_of_bid }}</td>
+            <td>{{ bid.material_estimate }}</td>
+            <td>{{ bid.labor_estimate }}</td>
+            <td>{{ bid.estimated_timeframe }}</td>
+            <td>{{ bid.estimated_number_of_workers }}</td>
+            <td>{{ bid.grand_total_bid }}</td>
+            <td>{{ bid.status }}</td>
         </tr>
         {% endfor %}
     </table>
