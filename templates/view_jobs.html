@@ -22,6 +22,7 @@
         <tbody>
             {% for job in jobs %}
             <tr>
+<<<<<<< HEAD
                 <td>{{ job.client_name }}</td>
                 <td>{{ job.contact_info }}</td>
                 <td>{{ job.Client Name }}</td>
@@ -34,6 +35,11 @@
                 <td>{{ job.progress }}</td>
                 
                 <!-- ... and so on for each column -->
+=======
+                {% for info in job %}
+                <td>{{info}}</td>
+                {% endfor %}
+>>>>>>> c00eccb (knk)
             </tr>
             {% endfor %}
             <a href="{{ url_for('index') }}" class="btn btn-back">Back to Main</a>
