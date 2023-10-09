@@ -14,9 +14,7 @@ def read_csv(filename):
 @app.route('/')
 def index():
     jobs = read_csv('jobs.csv')
-    print("Jobs: ", jobs)
     bids = read_csv('bids.csv')
-    print("Bids: ", bids)
     return render_template('index.html', jobs=jobs, bids=bids)
 
 

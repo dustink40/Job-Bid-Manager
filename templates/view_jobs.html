@@ -34,11 +34,6 @@
                 <!-- ... and so on for each column -->
             </tr>
             {% endfor %}
-            {% else %}
-            <tr>
-                <td colspan="2">No jobs available</td>
-            </tr>
-            {% endif %}
             <a href="{{ url_for('index') }}" class="btn btn-back">Back to Main</a>
         </tbody>
     </table>

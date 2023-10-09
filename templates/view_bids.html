@@ -24,27 +24,19 @@
         <tbody>
             {% for bid in bids %}
             <tr>
-                <td>{{ bid.client_name }}</td>
-                <td>{{ bid.contact_info}}</td>
-                <td>{{ bid.email_address }}</td>
-                <td>{{ bid.Client Name }}</td>
-                <td>{{ bid.Contact Info }}</td>
-                <td>{{ bid.Email Address }}</td>
-                <td>{{ bid.address }}</td>
-                <td>{{ bid.date_of_bid }}</td>
-                <td>{{ bid.material_estimate }}</td>
-                <td>{{ bid.labor_estimate }}</td>
-                <td>{{ bid.estimated_timeframe }}</td>
-                <td>{{ bid.estimated_number_of_workers }}</td>
-                <td>{{ bid.grand_total_bid }}</td>
-                <td>{{ bid.status }}</td>
+                <td>{{ bid['Client Name'] }}</td>
+                <td>{{ bid['Contact Info'] }}</td>
+                <td>{{ bid['Email Address'] }}</td>
+                <td>{{ bid['address'] }}</td>
+                <td>{{ bid['date_of_bid'] }}</td>
+                <td>{{ bid['material_estimate'] }}</td>
+                <td>{{ bid['labor_estimate'] }}</td>
+                <td>{{ bid['estimated_timeframe'] }}</td>
+                <td>{{ bid['estimated_number_of_workers'] }}</td>
+                <td>{{ bid['grand_total_bid'] }}</td>
+                <td>{{ bid['status'] }}</td>
             </tr>
         {% endfor %}
-        {% else %}
-        <tr>
-            <td colspan="2">No bids available</td>
-        </tr>
-        {% endif %}
         
         </tbody>
         <a href="{{ url_for('index') }}" class="btn btn-back">Back to Main</a>
