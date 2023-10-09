@@ -24,7 +24,6 @@
         <tbody>
             {% for bid in bids %}
             <tr>
-<<<<<<< HEAD
                 <td>{{ bid.client_name }}</td>
                 <td>{{ bid.contact_info}}</td>
                 <td>{{ bid.email_address }}</td>
@@ -39,13 +38,13 @@
                 <td>{{ bid.estimated_number_of_workers }}</td>
                 <td>{{ bid.grand_total_bid }}</td>
                 <td>{{ bid.status }}</td>
-=======
-                {% for info in bid %}
-                <td>{{info}}</td>
-                {% endfor %}
->>>>>>> c00eccb (knk)
             </tr>
         {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="2">No bids available</td>
+        </tr>
+        {% endif %}
         
         </tbody>
         <a href="{{ url_for('index') }}" class="btn btn-back">Back to Main</a>
