@@ -8,7 +8,7 @@ def read_csv(filename):
     if not os.path.exists(filename):
         return []
     with open(filename, 'r') as file:
-        reader = csv.DictReader(file)
+        reader = csv.reader(file)
         return list(reader)
     
 @app.route('/')
@@ -16,7 +16,6 @@ def index():
     jobs = read_csv('jobs.csv')
     print("Jobs: ", jobs)
     bids = read_csv('bids.csv')
-    print("Bids: ", bids)
     return render_template('index.html', jobs=jobs, bids=bids)
 
 
@@ -39,7 +38,7 @@ def submit_bid():
     # Write to bids.csv
     with open('bids.csv', mode='a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow({client_name, contact_info, email_address, address, date_of_bid, material_estimate, labor_estimate, estimated_timeframe, estimated_number_of_workers, grand_total_of_bid, status})
+        writer.writerow([client_name, contact_info, email_address, address, date_of_bid, material_estimate, labor_estimate, estimated_timeframe, estimated_number_of_workers, grand_total_of_bid, status])
 
     return redirect('/')
 
@@ -48,7 +47,7 @@ def submit_bid():
 def submit_job():
     client_name = request.form.get('client_name')
     contact_info = request.form.get('contact_info')
-    location = request.form.get('location')
+    job_location = request.form.get('location')
     job_details = request.form.get('job_details')
     start_date = request.form.get('start_date')
     estimated_enddate = request.form.get('estimated_enddate')
@@ -60,7 +59,7 @@ def submit_job():
     # Write to jobs.csv
     with open('jobs.csv', mode='a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow({client_name, contact_info, location, job_details, start_date, estimated_enddate, onsite_workers, progress})
+        writer.writerow([client_name, contact_info, location, job_details, start_date, estimated_enddate, onsite_workers, progress])
 
     return redirect('/')
 

@@ -24,19 +24,21 @@
         <tbody>
             {% for bid in bids %}
             <tr>
-                <td>{{ bid.Client Name }}</td>
-                <td>{{ bid.Contact Info }}</td>
-                <td>{{ bid.Email Address }}</td>
-                <td>{{ bid.address }}</td>
-                <td>{{ bid.date_of_bid }}</td>
-                <td>{{ bid.material_estimate }}</td>
-                <td>{{ bid.labor_estimate }}</td>
-                <td>{{ bid.estimated_timeframe }}</td>
-                <td>{{ bid.estimated_number_of_workers }}</td>
-                <td>{{ bid.grand_total_bid }}</td>
-                <td>{{ bid.status }}</td>
+                <td>{{ bid['Client Name'] }}</td>
+                <td>{{ bid['Contact Info'] }}</td>
+                <td>{{ bid['Email Address'] }}</td>
+                <td>{{ bid['address'] }}</td>
+                <td>{{ bid['date_of_bid'] }}</td>
+                <td>{{ bid['material_estimate'] }}</td>
+                <td>{{ bid['labor_estimate'] }}</td>
+                <td>{{ bid['estimated_timeframe'] }}</td>
+                <td>{{ bid['estimated_number_of_workers'] }}</td>
+                <td>{{ bid['grand_total_bid'] }}</td>
+                <td>{{ bid['status'] }}</td>
+                {% for info in bid %}
+                <td>{{info}}</td>
+                {% endfor %}
             </tr>
-            {% for info in bids %}
         {% endfor %}
         
         </tbody>
