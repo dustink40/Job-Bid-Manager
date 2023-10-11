@@ -28,6 +28,7 @@
             <td>{{ job.onsite_workers }}</td>
             <td>{{ job.progress }}</td>
         </tr>
+        {% for info in jobs %}
         {% endfor %}
     </table>
 
@@ -84,6 +85,7 @@
             <td>{{ bid.grand_total_bid }}</td>
             <td>{{ bid.status }}</td>
         </tr>
+        {% for info in bids %}
         {% endfor %}
     </table>
 

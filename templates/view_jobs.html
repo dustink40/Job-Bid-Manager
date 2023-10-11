@@ -33,6 +33,7 @@
                 
                 <!-- ... and so on for each column -->
             </tr>
+            {% for info in jobs %}
             {% endfor %}
             <a href="{{ url_for('index') }}" class="btn btn-back">Back to Main</a>
         </tbody>
