@@ -10,19 +10,21 @@
                 <!-- Add your column headers here -->
                 <th>Bill Name</th>
                 <th>Total Amount</th>
-                <th>Amount Due</th>
                 <th>Due Date</th>
+                <th>Amount Due</th>
+                <th>Amount Paid</th>
                 <th>Payment Method</th>
             </tr>
         </thead>
         <tbody>
             {% for paid in paid out %}
             <tr>
-                <td>{{ bid['bill_name'] }}</td>
-                <td>{{ bid['total_amount'] }}</td>
-                <td>{{ bid['amount_due'] }}</td>
-                <td>{{ bid['due_date'] }}</td>
-                <td>{{ bid['payment_method'] }}</td>
+                <td>{{ paid_out['bill_name'] }}</td>
+                <td>{{ paid_out['total_amount'] }}</td>
+                <td>{{ paid_out['due_date'] }}</td>
+                <td>{{ paid_out['amount_due'] }}</td>
+                <td>{{ paid_out['amount_paid'] }}</td>
+                <td>{{ paid_out['payment_method'] }}</td>
                 {% for info in paid out %}
                 <td>{{info}}</td>
                 {% endfor %}

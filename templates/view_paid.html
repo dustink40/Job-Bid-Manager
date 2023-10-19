@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>View Jobs</title>
+    <title>View Paid</title>
 </head>
 <body>
-    <table class="jobs-table">
+    <table class="paid-table">
         <thead>
             <tr>
                 <!-- Add your column headers here -->
                 <th>Client Name</th>
                 <th>Contact Info</th>
-                <th>Location</th>
-                <th>Job Details</th>
-                <th>Start Date</th>
-                <th>Estimated EndDate</th>
-                <th>Onsite Workers</th>
-                <th>Progress</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Payment Date</th>
+                <th>Amount Paid</th>
+                <th>Work Performed</th>
                 <!-- ... and so on for each column -->
             </tr>
         </thead>
         <tbody>
             {% for paid in paid %}
             <tr>
-                <td>{{ job['client_name'] }}</td>
-                <td>{{ job['contact_info'] }}</td>
-                <td>{{ job['email'] }}</td>
-                <td>{{ job['address'] }}</td>
-                <td>{{ job['payment_date'] }}</td>
-                <td>{{ job['amount_paid'] }}</td>
-                <td>{{ job['work_performed'] }}</td>
+                <td>{{ paid['client_name'] }}</td>
+                <td>{{ paid['contact_info'] }}</td>
+                <td>{{ paid['email'] }}</td>
+                <td>{{ paid['address'] }}</td>
+                <td>{{ paid['payment_date'] }}</td>
+                <td>{{ paid['amount_paid'] }}</td>
+                <td>{{ paid['work_performed'] }}</td>
                 {% for info in paid %}
                 <td>{{info}}</td>
                 {% endfor %}

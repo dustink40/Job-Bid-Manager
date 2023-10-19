@@ -2,131 +2,105 @@
 <html>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 <head>
-    <title>Job and Bid Management</title>
+    <title>Paid and Paid out Management</title>
 </head>
 <body>
-    <h1>Jobs <a href="{{ url_for('view_jobs') }}" target="_blank">View in new window</a></h1>
+    <h1>Paid <a href="{{ url_for('view_paid') }}" target="_blank">View in new window</a></h1>
     <table>
         <tr>
             <th>Client Name</th>
             <th>Contact Info</th>
-            <th>Location</th>
-            <th>Job Details</th>
-            <th>Start Date</th>
-            <th>Estimated EndDate</th>
-            <th>Onsite Workers</th>
-            <th>Progress</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Payment Date</th>
+            <th>Amount Paid</th>
+            <th>Work Performed</th>
         </tr>
-        {% for job in jobs %}
+        {% for paid in paid %}
         <tr>
-            <td>{{ job.client_name }}</td>
-            <td>{{ job.contact_info }}</td>
-            <td>{{ job.location }}</td>
-            <td>{{ job.job_details }}</td>
-            <td>{{ job.start_date }}</td>
-            <td>{{ job.estimated_enddate }}</td>
-            <td>{{ job.onsite_workers }}</td>
-            <td>{{ job.progress }}</td>
-            {% for info in jobs %}
+            <td>{{ paid.client_name }}</td>
+            <td>{{ paid.contact_info }}</td>
+            <td>{{ paid.email }}</td>
+            <td>{{ paid.address }}</td>
+            <td>{{ paid.payment_date }}</td>
+            <td>{{ paid.amount_paid }}</td>
+            <td>{{ paid.work_performed }}</td>
+            {% for info in paid %}
             <td>{{info}}</td>
             {% endfor %}
         </tr>
         {% endfor %}
     </table>
 
-    <form action="/submit_job" method="POST">
-        <label for="job_client_name">Clients Name:</label><br>
-        <input type="text" id="job_client_name" name="client_name" value=""><br>
+    <form action="/submit_paid" method="POST">
+        <label for="paid_client_name">Client Name:</label><br>
+        <input type="text" id="paid_client_name" name="client_name" value=""><br>
 
-        <label for="job_contact_info">Contact Info:</label><br>
-        <input type="text" id="job_contact_info" name="contact_info" value=""><br>
+        <label for="paid_contact_info">Contact Info:</label><br>
+        <input type="text" id="paid_contact_info" name="contact_info" value=""><br>
 
-        <label for="job_location">job location:</label><br>
-        <input type="text" id="job_location" name="location" value=""><br>
+        <label for="paid_email">Email:</label><br>
+        <input type="text" id="paid_email" name="email" value=""><br>
 
-        <label for="job_start_date">start date:</label><br>
-        <input type="text" id="job_start_date" name="start_date" value=""><br>
+        <label for="paid_address">address:</label><br>
+        <input type="text" id="paid_address" name="address" value=""><br>
 
-        <label for="job_estimated_enddate">Estimated Enddate:</label><br>
-        <input type="text" id="job_estimated_enddate" name="estimated_enddate" value=""><br>
+        <label for="paid_payment_date">Payment Date:</label><br>
+        <input type="text" id="paid_payment_date" name="payment_date" value=""><br>
 
-        <label for="job_onsite_workers">Onsite Workers:</label><br>
-        <input type="text" id="job_onsite_workers" name="onsite_workers" value=""><br>
+        <label for="paid_amount_paid">Amount Paid:</label><br>
+        <input type="text" id="paid_amount_paid" name="amount_paid" value=""><br>
 
-        <label for="job_progress">Progress:</label><br>
-        <input type="text" id="job_progress" name="progress" value=""><br>
+        <label for="paid_work_performed">Work Performed:</label><br>
+        <input type="text" id="work_performed" name="work_performed" value=""><br>
         <input type="submit" value="Submit">
     </form>
 
-    <h2>Bids <a href="{{ url_for('view_bids') }}" target="_blank">View in new window</a></h2>
+    <h2>paid_outs <a href="{{ url_for('view_paid_out') }}" target="_blank">View in new window</a></h2>
     <table>
         <tr>
-            <th>Client Name</th>
-            <th>Contact Info</th>
-            <th>Email Address</th>
-            <th>Address</th>
-            <th>Date of Bid</th>
-            <th>Material Estimate</th>
-            <th>Labor Estimate</th>
-            <th>Estimated Timeframe</th>
-            <th>Estimated Number of Workers</th>
-            <th>Grand Total of Bid</th>
-            <th>Status</th>
+            <th>Bill Name</th>
+            <th>Total Amount</th>
+            <th>Due Date</th>
+            <th>Amount Due</th>
+            <th>Amount Paid</th>
+            <th>Payment Method</th>
         </tr>
-        {% for bid in bids %}
+        {% for paid in paid out %}
         <tr>
-            <td>{{ bid['client_name'] }}</td>
-            <td>{{ bid['contact_info'] }}</td>
-            <td>{{ bid['email_address'] }}</td>
-            <td>{{ bid['address'] }}</td>
-            <td>{{ bid['date_of_bid'] }}</td>
-            <td>{{ bid['material_estimate'] }}</td>
-            <td>{{ bid['labor_estimate'] }}</td>
-            <td>{{ bid['estimated_timeframe'] }}</td>
-            <td>{{ bid['estimated_number_of_workers'] }}</td>
-            <td>{{ bid['grand_total_bid'] }}</td>
-            <td>{{ bid['status'] }}</td>
-            {% for info in bids %}
+            <td>{{ paid_out['bill_name'] }}</td>
+            <td>{{ paid_out['total_amount'] }}</td>
+            <td>{{ paid_out['due_date'] }}</td>
+            <td>{{ paid_out['amount_due'] }}</td>
+            <td>{{ paid_out['amount_paid'] }}</td>
+            <td>{{ paid_out['payment_method'] }}</td>
+            {% for info in paid out %}
             <td>{{info}}</td>
             {% endfor %}
         </tr>
         {% endfor %}
     </table>
 
-    <h3>Input Bids</h3>
-    <form action="/submit_bid" method="POST">
-        <label for="bid_client_name">Clients Name:</label><br>
-        <input type="text" id="bid_client_name" name="client_name" value=""><br>
+    <h3>Input Payments</h3>
+    <form action="/submit_paid_out" method="POST">
+        <label for="paid_out_bill_name">Bill Name:</label><br>
+        <input type="text" id="paid_out_bill_name" name="bill_name" value=""><br>
 
-        <label for="bid_contact_info">Contact Info:</label><br>
-        <input type="text" id="bid_contact_info" name="contact_info" value=""><br>
+        <label for="paid_out_total_amount">Total Amount:</label><br>
+        <input type="text" id="paid_out_total_amount" name="total_amount" value=""><br>
 
-        <label for="bid_email_address">Email Address:</label><br>
-        <input type="text" id="bid_email_address" name="email_address" value=""><br>
+        <label for="paid_out_due_date">Due Date:</label><br>
+        <input type="text" id="paid_out_due_date" name="due_date" value=""><br>
 
-        <label for="bid_address">Clients Address:</label><br>
-        <input type="text" id="bid_address" name="address" value=""><br>
+        <label for="paid_out_amount_due">Amount Due:</label><br>
+        <input type="text" id="paid_out_amount_due" name="amount_due" value=""><br>
 
-        <label for="bid_date_of_bid">Date of Bid:</label><br>
-        <input type="text" id="date_of_bid" name="date_of_bid" value=""><br>
 
-        <label for="bid_material_total">Material Total:</label><br>
-        <input type="text" id="bid_material_total" name="material_total" value=""><br>
+        <label for="paid_out_amount_paid">Amount Paid:</label><br>
+        <input type="text" id="paid_out_amount_paid" name="amount_paid" value=""><br>
 
-        <label for="bid_labor_total">Labor Total:</label><br>
-        <input type="text" id="bid_labor_total" name="labor_total" value=""><br>
-
-        <label for="bid_estimated_timeframe">Estimated Timeframe:</label><br>
-        <input type="text" id="bid_estimated_timeframe" name="estimated_timeframe" value=""><br>
-
-        <label for="bid_estimated_number_of_workers">Estimated Number of Workers:</label><br>
-        <input type="text" id="bid_estimated_number_of_workers" name="estimated_number_of_workers" value=""><br>
-
-        <label for="bid_grand_total_of_bid">Grand Total of Bid:</label><br>
-        <input type="text" id="bid_grand_total_of_bid" name="grand_total_of_bid" value=""><br>
-
-        <label for="bid_status_of_bid">Status of Bid:</label><br>
-        <input type="text" id="bid_status_of_bid" name="status_of_bid" value=""><br>
+        <label for="paid_out_payment_method">Payment Method:</label><br>
+        <input type="text" id="paid_out_payment_method" name="payment_method" value=""><br>
         <input type="submit" value="Submit">
     </form>
     
