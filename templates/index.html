@@ -56,7 +56,7 @@
         <input type="submit" value="Submit">
     </form>
 
-    <h2>paid_outs <a href="{{ url_for('view_paid_out') }}" target="_blank">View in new window</a></h2>
+    <h2>paid_out <a href="{{ url_for('view_paid_out') }}" target="_blank">View in new window</a></h2>
     <table>
         <tr>
             <th>Bill Name</th>
@@ -66,7 +66,7 @@
             <th>Amount Paid</th>
             <th>Payment Method</th>
         </tr>
-        {% for paid in paid out %}
+        {% for paid out in paid out %}
         <tr>
             <td>{{ paid_out['bill_name'] }}</td>
             <td>{{ paid_out['total_amount'] }}</td>
