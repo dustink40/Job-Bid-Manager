@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Paid out</title>
+</head>
+<body>
+    <table class="paid_out-table">
+        <thead>
+            <tr>
+                <!-- Add your column headers here -->
+                <th>Bill Name</th>
+                <th>Total Amount</th>
+                <th>Amount Due</th>
+                <th>Due Date</th>
+                <th>Payment Method</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paid in paid out %}
+            <tr>
+                <td>{{ bid['bill_name'] }}</td>
+                <td>{{ bid['total_amount'] }}</td>
+                <td>{{ bid['amount_due'] }}</td>
+                <td>{{ bid['due_date'] }}</td>
+                <td>{{ bid['payment_method'] }}</td>
+                {% for info in paid out %}
+                <td>{{info}}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        
+        </tbody>
+        <a href="{{ url_for('index') }}" class="btn btn-back">Back to Main</a>
+    </table>
+</body>
+</html>

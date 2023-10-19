@@ -13,65 +13,54 @@ def read_csv(filename):
     
 @app.route('/')
 def index():
-    jobs = read_csv('jobs.csv')
-    print("Jobs: ", jobs)
-    bids = read_csv('bids.csv')
-    return render_template('index.html', jobs=jobs, bids=bids)
+    paid = read_csv('paid.csv')
+    print("Paid: ", paid)
+    paid_out = read_csv('paid_out.csv')
+    return render_template('index.html', paid=paid, paid_out=paid_out)
 
 
-@app.route('/submit_bid', methods=['POST'])
-def submit_bid():
-    client_name = request.form.get('client_name')
-    contact_info = request.form.get('contact_info')
-    email_address = request.form.get('email_address')
-    address = request.form.get('address')
-    date_of_bid = request.form.get('date_of_bid')
-    material_estimate = request.form.get('material_estimate')
-    labor_estimate = request.form.get('labor_estimate')
-    estimated_timeframe = request.form.get('estimated_timeframe')
-    estimated_number_of_workers = request.form.get('estimated_number_of_workers')
-    grand_total_of_bid = request.form.get('grand_total_of_bid')
-    status = request.form.get('status')
+@app.route('/submit_paid_out', methods=['POST'])
+def submit_paid_out():
+    bill_name = request.form.get('bill_name')
+    total_amount = request.form.get('total_amount')
+    amount_due = request.form.get('amount_due')
+    due_date = request.form.get('due_date')
+    payment_method = request.form.get('payment_method')
 
-    
-
-    # Write to bids.csv
-    with open('bids.csv', mode='a', newline='') as file:
+        # Write to bids.csv
+    with open('paid_out.csv', mode='a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow([client_name, contact_info, email_address, address, date_of_bid, material_estimate, labor_estimate, estimated_timeframe, estimated_number_of_workers, grand_total_of_bid, status])
+        writer.writerow([bill_name, total_amount, amount_due, due_date, payment_method])
 
     return redirect('/')
 
 
-@app.route('/submit_job', methods=['POST'])
-def submit_job():
+@app.route('/submit_paid', methods=['POST'])
+def submit_paid():
     client_name = request.form.get('client_name')
     contact_info = request.form.get('contact_info')
-    job_location = request.form.get('location')
-    job_details = request.form.get('job_details')
-    start_date = request.form.get('start_date')
-    estimated_enddate = request.form.get('estimated_enddate')
-    onsite_workers = request.form.get('onsite_workers')
-    progress = request.form.get('progress')
-
-    print(client_name, contact_info, job_location, job_details, start_date, estimated_enddate, onsite_workers, progress)
+    email = request.form.get('email')
+    address = request.form.get('address')
+    payment_date = request.form.get('payment_date')
+    amount_paid = request.form.get('amount_paid')
+    work_performed = request.form.get('work_performed')    
 
     # Write to jobs.csv
-    with open('jobs.csv', mode='a', newline='') as file:
+    with open('paid.csv', mode='a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow([client_name, contact_info, job_location, job_details, start_date, estimated_enddate, onsite_workers, progress])
+        writer.writerow([client_name, contact_info, email, address, payment_date, amount_paid, work_performed])
 
     return redirect('/')
 
-@app.route('/view_jobs')
-def view_jobs():
-    jobs = read_csv('jobs.csv')
-    return render_template('view_jobs.html', jobs=jobs)
+@app.route('/view_paid')
+def view_paid():
+    paid = read_csv('paid.csv')
+    return render_template('view_paid.html', paid=paid)
 
-@app.route('/view_bids')
-def view_bids():
-    bids = read_csv('bids.csv')
-    return render_template('view_bids.html', bids=bids)
+@app.route('/view_paid_out')
+def view_paid_out():
+    paid_out = read_csv('paid_out.csv')
+    return render_template('view_paid_out.html', paid_out=paid_out)
 
 if __name__ == '__main__':
     app.run(debug=True)
