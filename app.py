@@ -8,7 +8,7 @@ def read_csv(filename):
     if not os.path.exists(filename):
         return []
     with open(filename, 'r') as file:
-        reader = csv.reader(file)
+        reader = csv.DictReader(file)
         return list(reader)
     
 @app.route('/')
