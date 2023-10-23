@@ -30,8 +30,8 @@
                 <td>{{ paid_out['amount_paid'] }}</td>
                 <td>{{ paid_out['payment_method'] }}</td>
                 {% for info in paid_out %}
+                {% endfor %}
             </tr>
-        {% endfor %}
         
         </tbody>
         <a href="{{ url_for('index') }}" class="btn btn-back">Back to Main</a>

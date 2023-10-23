@@ -31,11 +31,10 @@
                 <td>{{ paid['amount_paid'] }}</td>
                 <td>{{ paid['work_performed'] }}</td>
                 {% for info in paid %}
+                {% endfor %}
                 
                 <!-- ... and so on for each column -->
             </tr>
-            
-            {% endfor %}
             <a href="{{ url_for('index') }}" class="btn btn-back">Back to Main</a>
         </tbody>
     </table>
