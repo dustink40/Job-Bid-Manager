@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
 <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+
+
     <title>Paid and Paid out Management</title>
 </head>
 <body>
@@ -26,7 +29,6 @@
             <td>{{ paid.amount_paid }}</td>
             <td>{{ paid.work_performed }}</td>
             {% for info in paid %}
-            <td>{{info}}</td>
             {% endfor %}
         </tr>
         {% endfor %}
@@ -66,7 +68,7 @@
             <th>Amount Paid</th>
             <th>Payment Method</th>
         </tr>
-        {% for paid out in paid out %}
+        {% for paid_out in paid_out %}
         <tr>
             <td>{{ paid_out['bill_name'] }}</td>
             <td>{{ paid_out['total_amount'] }}</td>
@@ -74,8 +76,7 @@
             <td>{{ paid_out['amount_due'] }}</td>
             <td>{{ paid_out['amount_paid'] }}</td>
             <td>{{ paid_out['payment_method'] }}</td>
-            {% for info in paid out %}
-            <td>{{info}}</td>
+            {% for info in paid_out %}
             {% endfor %}
         </tr>
         {% endfor %}

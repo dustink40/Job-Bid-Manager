@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/paid_out.css') }}">
+
     <title>View Paid out</title>
 </head>
 <body>
     <table class="paid_out-table">
+        <column>
         <thead>
             <tr>
                 <!-- Add your column headers here -->
@@ -16,8 +19,9 @@
                 <th>Payment Method</th>
             </tr>
         </thead>
+         </column>
         <tbody>
-            {% for paid out in paid out %}
+            {% for paid in paid_out %}
             <tr>
                 <td>{{ paid_out['bill_name'] }}</td>
                 <td>{{ paid_out['total_amount'] }}</td>
@@ -25,8 +29,7 @@
                 <td>{{ paid_out['amount_due'] }}</td>
                 <td>{{ paid_out['amount_paid'] }}</td>
                 <td>{{ paid_out['payment_method'] }}</td>
-                {% for info in paid out %}
-                <td>{{info}}</td>
+                {% for info in paid_out %}
                 {% endfor %}
             </tr>
         {% endfor %}

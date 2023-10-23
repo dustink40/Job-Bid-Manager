@@ -1,0 +1,19 @@
+body {
+    background-color: white;
+}
+
+table, th, td {
+    border: 1px solid blue;
+}
+
+table {
+    color: red;
+}
+
+tr:hover {
+    background-color: aqua;
+}
+
+col {
+    column-span: 2 red;
+}
